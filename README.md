@@ -51,4 +51,51 @@ Note II: Server allow to use several commands. Try write `?` to learn more.
 
 ## Compile client
 
-...
+### Fast way Windows
+
+* Go to https://crossuo.com/#download and install it. In example: https://github.com/crossuo/crossuo/releases
+* Generate a configuration file `crossuo.cfg` at crossuo.exe path:
+
+```
+AcctID=test
+AcctPassword=test
+RememberAcctPW=no
+AutoLogin=no
+TheAbyss=no
+Asmut=no
+Crypt=no
+CustomPath=/home/test/uo/resources/UO/2D
+LoginServer=127.0.0.1,2593
+ClientVersion=7.0.45.0
+```
+
+* Note: You can generate it with xuolauncher.
+
+### Developer way Windows
+
+** TODO: Test this method
+
+* Install CMake. In example `cmake-3.16.4-win64-x64.msi` from: https://cmake.org/download/
+* Visual Studio 2019 Community edition. In example from: https://visualstudio.microsoft.com/es/downloads/
+* Install Cygwin64. In example from: https://cygwin.com/install.html
+    * Select mingw64-gcc, and apply changes.
+    * Add to environment variables MinGW path: `C:\MinGW\bin`
+* Go to `submodules\crossuo` path
+* Execute cmake:
+
+```
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j4
+```
+
+
+# Other servers
+
+* [Tierras Baldias community on Facebook](https://www.facebook.com/TierrasBaldiasUO), still missing the old shard.
+* [UO Demise](https://www.uogdemise.com/)
+
+# References
+
+* [UO Guide](http://www.uoguide.com/Main_Page)

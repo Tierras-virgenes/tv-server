@@ -5,3 +5,4 @@ This is a repository to mantain a private server of ServUO. Here you will find s
 # Sections
 
 * [Tutorials](./tutorials/tutorials.md): All kind of tutorials to create your server, configure it, and use it.
+* [Library](.library/index.md): All knowledge about UO.

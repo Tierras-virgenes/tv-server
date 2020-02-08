@@ -1,0 +1,6 @@
+[submodule "submodules/ServUO"]
+	path = submodules/ServUO
+	url = git@github.com:Tierras-virgenes/ServUO.git
+[submodule "submodules/crossuo"]
+	path = submodules/crossuo
+	url = git@github.com:Tierras-virgenes/crossuo.git

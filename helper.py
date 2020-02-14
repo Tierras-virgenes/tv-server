@@ -18,7 +18,7 @@ args = None
 SERVER_PATH = os.path.join(pathlib.Path().absolute(), "submodules", "ServUO")
 REPOSITORY_PATH = os.path.join(pathlib.Path().absolute(), "resources", "tv")
 RESOURCES_DEFAULT_PATH = os.path.join("resources", "2D")
-FOLDER_SERVER_LIST = ["Config", "Data"]
+FOLDER_SERVER_LIST = ["Config"]
 HASH_MD5_RESOURCES = "93945c306b645459c63adddc299e3760"
 
 ################################################################################

@@ -1,5 +1,6 @@
 # Ignore binary folders
-resources/2D
+resources/tv/Data
+resources/
 downloads
 git
 bin

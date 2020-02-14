@@ -51,10 +51,13 @@ Note II: Server allow to use several commands. Try write `?` to learn more.
 
 ## Compile client
 
-### Fast way Windows
+### Client configuration
 
-* Go to https://crossuo.com/#download and install it. In example: https://github.com/crossuo/crossuo/releases
-* Generate a configuration file `crossuo.cfg` at crossuo.exe path:
+Here you are a sample configuration, with account name test, and password test.  
+
+* CustomPath should work with default resource path in GNU/Linux.
+* The file has to be in `crossuo` binary path with name: `crossuo.cfg`.
+* Example content:
 
 ```
 AcctID=test
@@ -64,12 +67,17 @@ AutoLogin=no
 TheAbyss=no
 Asmut=no
 Crypt=no
-CustomPath=/home/test/uo/resources/UO/2D
+CustomPath=../../../../UO/2D
 LoginServer=127.0.0.1,2593
 ClientVersion=7.0.45.0
 ```
 
-* Note: You can generate it with xuolauncher.
+* Note: You can generate a configuration file with xuolauncher.
+
+### Fast way Windows
+
+* Go to https://crossuo.com/#download and install it. In example: https://github.com/crossuo/crossuo/releases
+* Generate a configuration file `crossuo.cfg` at crossuo.exe path:
 
 ### Developer way Windows
 
@@ -90,6 +98,23 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 make -j4
 ```
 
+### Developer way GNU/Linux
+
+* Install dependencies (OpenGL ... **TODO**)
+* Compile crossuo
+```
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j4
+```
+* Copy `tv-server/resources/crossuo/Config/` into build path and edit it. In example: 
+```
+cp tv-server/resources/crossuo/Config/crossuo.cfg submodules/crossuo/build/src
+```
+* Run `crossuo` binary.
+
+Note: By default should work use: `CustomPath=../../../../resources/2D`
 
 # Other servers
 

@@ -116,6 +116,15 @@ cp tv-server/resources/crossuo/Config/crossuo.cfg submodules/crossuo/build/src
 
 Note: By default should work use: `CustomPath=../../../../resources/2D`
 
+# Helper
+
+This is a python script for manage your server customization. It is ready to use `tv-server` folder with `submodule/ServUO`. This script can:
+
+* Option 'h': Print script help.
+* Option 'c': Check default configuration.
+* Option 'u': UPDATE SERVER. Copy data from git repository to the server
+* Option 's': UPDATE REPOSITORY. Copy data from the server to the git repository to save your changes.
+
 # Other servers
 
 * [Tierras Baldias community on Facebook](https://www.facebook.com/TierrasBaldiasUO), still missing the old shard.

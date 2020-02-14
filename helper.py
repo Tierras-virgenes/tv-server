@@ -53,11 +53,14 @@ def check_resources():
     """
     if not os.path.exists(RESOURCES_DEFAULT_PATH):
         logger.error("Resources default path no exists", path=RESOURCES_DEFAULT_PATH)
+        return
 
     logger.info("Calculating resources MD5", path=RESOURCES_DEFAULT_PATH)
     md5hash = dirhash(RESOURCES_DEFAULT_PATH, 'md5')
     if not HASH_MD5_RESOURCES == md5hash:
         logger.error("Bad MD5 checksum for resources", hash=md5hash, expected=HASH_MD5_RESOURCES)
+        return
+        
     logger.info("Resources path looks OK", hash=md5hash)
     return
 

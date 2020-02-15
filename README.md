@@ -2,15 +2,25 @@
 
 Custom UO server.
 
-It use ServUO as server (GPL license) and provide crossUO as client () 
+It use ServUO as server (GPL license) and provide crossUO as client (GPL) 
 
 # Folders organization
 
-* git: Repositories
+* bin: You can use this folder to store your binaries related to UO. *Empty at clone*.
+* downloads: You can use this folder to store your binaries related to UO. *Empty at clone*.
 * resources: Installed resources
-* downloads: raw data downloaded
+    * 2D: Default path for resources. *Empty at clone*.
+    * crossuo/Config: Example UO client configuration.
+    * tv: All Tierras Virgenes customization files.
+* submodules: Repositories as dependencies:
+    * crossuo: Compatible UO client version. Use relative resources path by default. More info [HERE](**TODO**)
+    * ServUO: Compatible UO server. Use relative resources path by default. Use `helper.py` to manage changes with repository. More info [HERE](**TODO**)
+    * wiki: TV-server wiki as submodule to ease integration and versioning.
+* backup: Use `helper.py` to generate standalone backup copies of your server. *Empty at clone*. More info [HERE](**TODO**)
 
 # Quick start
+
+**TODO** Move to wiki pages.
 
 ## Cloning
 
@@ -36,6 +46,8 @@ Second step
 You will need UO resources. In example: UO2D.zip extracted from https://runuo.theabyss.eu/?files
 
 * 2D: Put here Ultima onlines binaries. I use "Time of Legends" 2D from the link above.
+
+You can use `python helper.py --check` to check if all expected resources are ok and located in default path.
 
 ## Compile server
 
@@ -124,6 +136,12 @@ This is a python script for manage your server customization. It is ready to use
 * Option 'c': Check default configuration.
 * Option 'u': UPDATE SERVER. Copy data from git repository to the server
 * Option 's': UPDATE REPOSITORY. Copy data from the server to the git repository to save your changes.
+
+# Versions
+
+| ServUO | Client |
+|:------|:-------|
+| 56.1 | XX.X.XX |
 
 # Other servers
 

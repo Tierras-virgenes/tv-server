@@ -6,4 +6,4 @@
 	url = git@github.com:Tierras-virgenes/crossuo.git
 [submodule "submodules/wiki"]
 	path = submodules/wiki
-	url = git@github.com:Tierras-virgenes/tv-server.git
+	url = git@github.com:Tierras-virgenes/tv-server.wiki.git

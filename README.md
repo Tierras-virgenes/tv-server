@@ -20,9 +20,7 @@ It use ServUO as server (GPL license) and provide crossUO as client (GPL)
 
 # Quick start
 
-**TODO** Move to wiki pages.
-
-## Cloning
+## 1º Cloning
 
 First step.
 
@@ -39,109 +37,65 @@ git submodule init
 git submodule update
 ```
 
-## Resources
+## 2º Resources
 
-Second step
+The second step is to look for a correct version of the resources. You will need UO resources to run a server and a client. 
 
-You will need UO resources. In example: UO2D.zip extracted from https://runuo.theabyss.eu/?files
+* resources/2D folder: Put here Ultima onlines binaries. I use "Time of Legends" 2D from the link above.
+* In example, you can use: UO2D.zip extracted from https://runuo.theabyss.eu/?files
+* You can use `python helper.py --check` to check if all expected resources are ok and located in default path.
 
-* 2D: Put here Ultima onlines binaries. I use "Time of Legends" 2D from the link above.
+## 3º Set up server & client
 
-You can use `python helper.py --check` to check if all expected resources are ok and located in default path.
+Check how to start in the Wiki:
 
-## Compile server
-
-1. Go to submodule/ServUO folder.
-2. Execute `Compile.WIN - Release.bat`. If you are in GNU/Linux use `make`
-3. Press any key 2 times, and then put your UO binary folder wehn 'Enter the Ultima Online directory' appear. In example: `../../resources/2D`
-4. Create a GM account.
-5. Allow firewall.
-6. When a message like: `Listening: 127.0.0.1:2593`, the server is running in localhost and port 2593. It also have a public IP.
-
-Note I: To compile in GNU/Linux you will need mono-complete v>=5.0
-Note II: Server allow to use several commands. Try write `?` to learn more.
-
-## Compile client
-
-### Client configuration
-
-Here you are a sample configuration, with account name test, and password test.  
-
-* CustomPath should work with default resource path in GNU/Linux.
-* The file has to be in `crossuo` binary path with name: `crossuo.cfg`.
-* Example content:
-
-```
-AcctID=test
-AcctPassword=test
-RememberAcctPW=no
-AutoLogin=no
-TheAbyss=no
-Asmut=no
-Crypt=no
-CustomPath=../../../../UO/2D
-LoginServer=127.0.0.1,2593
-ClientVersion=7.0.45.0
-```
-
-* Note: You can generate a configuration file with xuolauncher.
-
-### Fast way Windows
-
-* Go to https://crossuo.com/#download and install it. In example: https://github.com/crossuo/crossuo/releases
-* Generate a configuration file `crossuo.cfg` at crossuo.exe path:
-
-### Developer way Windows
-
-** TODO: Test this method
-
-* Install CMake. In example `cmake-3.16.4-win64-x64.msi` from: https://cmake.org/download/
-* Visual Studio 2019 Community edition. In example from: https://visualstudio.microsoft.com/es/downloads/
-* Install Cygwin64. In example from: https://cygwin.com/install.html
-    * Select mingw64-gcc, and apply changes.
-    * Add to environment variables MinGW path: `C:\MinGW\bin`
-* Go to `submodules\crossuo` path
-* Execute cmake:
-
-```
-mkdir build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-make -j4
-```
-
-### Developer way GNU/Linux
-
-* Install dependencies (OpenGL ... **TODO**)
-* Compile crossuo
-```
-mkdir build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-make -j4
-```
-* Copy `tv-server/resources/crossuo/Config/` into build path and edit it. In example: 
-```
-cp tv-server/resources/crossuo/Config/crossuo.cfg submodules/crossuo/build/src
-```
-* Run `crossuo` binary.
-
-Note: By default should work use: `CustomPath=../../../../resources/2D`
+* [How](https://raw.githubusercontent.com/wiki/Tierras-virgenes/tv-server/server/index) to set up a server
+* [How](https://raw.githubusercontent.com/wiki/Tierras-virgenes/tv-server/client/index) to set up a client
 
 # Helper
 
-This is a python script for manage your server customization. It is ready to use `tv-server` folder with `submodule/ServUO`. This script can:
+This is a python script for manage your server customization. It is ready to use `tv-server` folder with `submodule/ServUO`. 
+
+Use the script require python 3. Run help: `python helper.py -h`. This script can do several tasks to ease maitain your server instance with changes and update.
+
+## Help
 
 * Option 'h': Print script help.
+
+## Check resources
+
 * Option 'c': Check default configuration.
-* Option 'u': UPDATE SERVER. Copy data from git repository to the server
+* Check if default resource folder contain data.
+* MD5 for client files should meet expected checksum. 
+* Note: If you want to use a different client data, or modify, edit the checksum or just ignore it.
+
+## Update server data
+
+* Option 'u': UPDATE SERVER. Copy data from git repository to the server.
+
+This options is used to Copy files from `resources/tv-server` into running server data. 
+
+* WARNING: Conf folder will be deleted and copy again. The content will be lost.
+
+## Update repository
+
 * Option 's': UPDATE REPOSITORY. Copy data from the server to the git repository to save your changes.
+
+This options is used to Copy files from running server data into `resources/tv-server`.
+
+* WARNING: Conf folder will be deleted and copy again. The content will be lost. You can trace changes with git commands.
+
+## Backup
+
+* **TODO**
 
 # Versions
 
-| ServUO | Client |
-|:------|:-------|
-| 56.1 | XX.X.XX |
+| ServUO | Client classic | Client enhaced |
+|:------|:-------|:--------|
+| 56.1 | 7.0.76.46 | 67.0.59.0 |
+
+* Note: cross uo current version is: 7.0.45.0 **TODO** check this.
 
 # Other servers
 

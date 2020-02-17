@@ -4,3 +4,7 @@ resources/
 downloads
 git
 bin
+backups
+
+# IDEs
+.vscode/

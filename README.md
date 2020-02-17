@@ -49,8 +49,8 @@ The second step is to look for a correct version of the resources. You will need
 
 Check how to start in the Wiki:
 
-* [How](https://raw.githubusercontent.com/wiki/Tierras-virgenes/tv-server/server/index) to set up a server
-* [How](https://raw.githubusercontent.com/wiki/Tierras-virgenes/tv-server/client/index) to set up a client
+* [How](https://github.com/Tierras-virgenes/tv-server/wiki/server) to set up a server
+* [How](https://github.com/Tierras-virgenes/tv-server/wiki/client) to set up a client
 
 # Helper
 

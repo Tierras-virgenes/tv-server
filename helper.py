@@ -5,7 +5,11 @@ import time
 import argparse
 import shutil
 import pathlib
+import datetime
+import tarfile
 import errno
+
+from distutils.dir_util import copy_tree
 from checksumdir import dirhash
 
 import structlog
@@ -15,10 +19,13 @@ logger = structlog.get_logger()
 parser = None
 args = None
 
-SERVER_PATH = os.path.join(pathlib.Path().absolute(), "submodules", "ServUO")
-REPOSITORY_PATH = os.path.join(pathlib.Path().absolute(), "resources", "tv")
+ROOT_PATH = pathlib.Path().absolute()
+SERVER_PATH = os.path.join(ROOT_PATH, "submodules", "ServUO")
+REPOSITORY_PATH = os.path.join(ROOT_PATH, "resources", "tv")
+BACKUP_PATH = os.path.join(ROOT_PATH, "backups")
 RESOURCES_DEFAULT_PATH = os.path.join("resources", "2D")
 FOLDER_SERVER_LIST = ["Config"]
+BACKUP_FOLDER_LIST = ["Config", "Data", "Spawns"]
 HASH_MD5_RESOURCES = "93945c306b645459c63adddc299e3760"
 
 ################################################################################
@@ -35,9 +42,7 @@ def copy_folder(src, dest):
         file_src = os.path.join(src, folder)
         file_dest = os.path.join(dest, folder)
         logger.info("copying", file_src=file_src, file_dest=file_dest)
-        if os.path.exists(file_dest):
-            shutil.rmtree(file_dest)
-        shutil.copytree(file_src, file_dest)
+        copy_tree(src=file_src, dst=file_dest)
     return
 
 def check_resources():
@@ -83,15 +88,42 @@ def update_repository_files():
     logger.info("update_repository_files", src=src, dest=dest)
     copy_folder(src, dest)
     return
+
+def backup():
+    """
+    Generate backup file with timestamp name
+
+    * The saved folders are:
+        * Config
+        * Data
+        * Spawns
+    * A tar file will be generated.
+    * The name contain the backup timestamp.
+    """
+    # SERVER_PATH
+    timestamp_name = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ".tar"
+    output_file = os.path.join(BACKUP_PATH, timestamp_name)
     
+    logger.info("Generating backup tar file", file=output_file)
+
+    with tarfile.open(output_file, 'w') as tar:
+        for folder in BACKUP_FOLDER_LIST:
+            current_folder = os.path.join(SERVER_PATH, folder)
+            logger.info("Adding folder", folder=current_folder)
+            tar.add(current_folder, arcname=folder)
+    
+    time.sleep(0.001)
+    return
+
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
 
     parser = argparse.ArgumentParser(description="Helper to save server data",
                                     formatter_class=argparse.RawTextHelpFormatter)
 
-    parser.add_argument('-c','--check', help='Check than required resources are properly installed in Default path. You can provide other path if you want.',
-                        default="", action='store_true')
+    parser.add_argument('-b','--backup', help='Generate a timestamped copy of the server data. This include Data binaries, configuration, and spawns', default="", action='store_true')
+
+    parser.add_argument('-c','--check', help='Check than required resources are properly installed in Default path. You can provide other path if you want.', default="", action='store_true')
 
     parser.add_argument('-u','--update', help='Update server files. Copy from repository to server folders.',
                         default="", action='store_true')
@@ -107,6 +139,8 @@ if __name__ == "__main__":
         update_repository_files()
     elif args.check:
         check_resources()
+    elif args.backup:
+        backup()
     else:
         logger.info("Select any option. Did nothing")
     

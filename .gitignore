@@ -1,3 +1,6 @@
+# Configuration with sensible data
+resources/tv/Config/Email.cfg
+
 # Ignore binary folders
 resources/tv/Data
 resources/

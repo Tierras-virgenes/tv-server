@@ -25,7 +25,7 @@ REPOSITORY_PATH = os.path.join(ROOT_PATH, "resources", "tv")
 BACKUP_PATH = os.path.join(ROOT_PATH, "backups")
 RESOURCES_DEFAULT_PATH = os.path.join("resources", "2D")
 FOLDER_SERVER_LIST = ["Config"]
-BACKUP_FOLDER_LIST = ["Config", "Data", "Spawns"]
+BACKUP_FOLDER_LIST = ["Config", "Saves", "Spawns"]
 HASH_MD5_RESOURCES = "93945c306b645459c63adddc299e3760"
 
 ################################################################################

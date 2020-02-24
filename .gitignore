@@ -1,9 +1,11 @@
-# Configuration with sensible data
-resources/tv/Config/Email.cfg
-
 # Ignore binary folders
 resources/tv/Data
 resources/2D
+
+# Configuration with sensible data
+resources/tv/Config/Email.cfg
+
+# Empty folders
 downloads
 git
 bin

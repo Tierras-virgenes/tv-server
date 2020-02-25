@@ -43,7 +43,7 @@ The second step is to look for a correct version of the resources. You will need
 
 * resources/2D folder: Put here Ultima onlines binaries. I use "Time of Legends" 2D from the link above.
 * In example, you can use: UO2D.zip extracted from https://runuo.theabyss.eu/?files
-* You can use `python helper.py --check` to check if all expected resources are ok and located in default path.
+* You can use `python helper.py --check` from `servuo-utils` to check if all expected resources are ok and located in default path.
 
 ## 3º Set up server & client
 
@@ -51,43 +51,6 @@ Check how to start in the Wiki:
 
 * [How](https://github.com/Tierras-virgenes/tv-server/wiki/server) to set up a server
 * [How](https://github.com/Tierras-virgenes/tv-server/wiki/client) to set up a client
-
-# Helper
-
-This is a python script for manage your server customization. It is ready to use `tv-server` folder with `submodule/ServUO`. 
-
-Use the script require python 3. Run help: `python helper.py -h`. This script can do several tasks to ease maitain your server instance with changes and update.
-
-## Help
-
-* Option 'h': Print script help.
-
-## Check resources
-
-* Option 'c': Check default configuration.
-* Check if default resource folder contain data.
-* MD5 for client files should meet expected checksum. 
-* Note: If you want to use a different client data, or modify, edit the checksum or just ignore it.
-
-## Update server data
-
-* Option 'u': UPDATE SERVER. Copy data from git repository to the server.
-
-This options is used to Copy files from `resources/tv-server` into running server data. 
-
-* WARNING: Conf folder will be deleted and copy again. The content will be lost.
-
-## Update repository
-
-* Option 's': UPDATE REPOSITORY. Copy data from the server to the git repository to save your changes.
-
-This options is used to Copy files from running server data into `resources/tv-server`.
-
-* WARNING: Conf folder will be deleted and copy again. The content will be lost. You can trace changes with git commands.
-
-## Backup
-
-* **TODO**
 
 # Versions
 

@@ -7,3 +7,6 @@
 [submodule "submodules/wiki"]
 	path = submodules/wiki
 	url = git@github.com:Tierras-virgenes/tv-server.wiki.git
+[submodule "submodules/servuo-utils"]
+	path = submodules/servuo-utils
+	url = git@github.com:Tierras-virgenes/servuo-utils.git

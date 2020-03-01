@@ -59,7 +59,7 @@ Check how to start in the Wiki:
 ```
 python3 -m venv env
 source env/bin/activate
-pip install submodules/servuo-utils -e
+pip install -e submodules/servuo-utils
 deactivate
 ```
 

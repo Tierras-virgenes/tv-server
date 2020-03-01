@@ -52,6 +52,30 @@ Check how to start in the Wiki:
 * [How](https://github.com/Tierras-virgenes/tv-server/wiki/server) to set up a server
 * [How](https://github.com/Tierras-virgenes/tv-server/wiki/client) to set up a client
 
+# Use python servuoutils locally
+
+## Installation
+
+```
+python3 -m venv env
+source env/bin/activate
+pip install submodules/servuo-utils -e
+deactivate
+```
+
+## Usage
+
+Load the environment to start using it with:
+
+```
+source env/bin/activate
+```
+
+If you finish working, you can still using the terminal if:
+
+```
+deactivate
+```
 # Versions
 
 | ServUO | Client classic | Client enhaced |

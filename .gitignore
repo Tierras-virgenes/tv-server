@@ -2,6 +2,9 @@
 resources/tv/Data
 resources/2D
 
+# Python virtual environment
+env/
+
 # Configuration with sensible data
 resources/tv/Config/Email.cfg
 
